@@ -464,8 +464,8 @@
                 "value": "TLS"
               },
               "algorithm": {
-                "unit": "enum",
-                "value": "AES"
+                "unit": "list",
+                "value": ["TLS_AES_256_GCM_SHA384", "TLS_AES_128_GCM_SHA256", "TLS_AES_128_CCM_8_SHA256", "TLS_AES_128_CCM_SHA256"]
               },
               "keyLength": {
                 "unit": "number",
