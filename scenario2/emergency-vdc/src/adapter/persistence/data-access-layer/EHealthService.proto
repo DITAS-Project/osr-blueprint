@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.ditas.ehealth;
+
+service EHealthQueryService {
+    rpc query (EHealthQueryRequest) returns (EHealthQueryReply) {}
+}
+
+message EHealthQueryRequest {
+    DalMessageProperties dalMessageProperties = 1;
+    DalPrivacyProperties dalPrivacyProperties = 2;
+    string query = 3;
+    repeated string queryParameters = 4;
+}
+
+message EHealthQueryReply {
+    repeated string values = 1;
+}
+
+message DalMessageProperties {
+    string purpose = 1;
+    string requesterId = 2;
+    string authorization = 3;
+}
+
+message DalPrivacyProperties {
+    enum PrivacyZone {
+        PUBLIC = 0;
+        PRIVATE = 1;
+    }
+    PrivacyZone privacyZone = 1;
+}
