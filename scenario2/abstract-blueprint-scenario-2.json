@@ -309,9 +309,11 @@
     },
     "DAL_Images": {},
     "VDC_Images": {
-    	"image": "153.92.30.225:5050/osr-emergency-vdc",
-		"external_port": 3000,
-		"internal_port": 3000
+      "images": {
+        "image": "153.92.30.225:5050/osr-emergency-vdc",
+        "external_port": 3000,
+        "internal_port": 3000
+      }
     },
     "Identity_Access_Management": {
       "jwks_uri": "https://keycloak.service/protocol/openid-connect/certs",
@@ -465,8 +467,11 @@
   "COOKBOOK_APPENDIX": {
     "Identity_Access_Management": {
       "validation_keys": [
-        "f66fdd086402041b0c256949c4a2836145493d6b5491cd9284addcdd48a5197d"
-      ]
+        {
+          "key": "f66fdd086402041b0c256949c4a2836145493d6b5491cd9284addcdd48a5197d"
+        }
+      ],
+      "mapping": []
     }
   },
   "EXPOSED_API": {
@@ -507,7 +512,10 @@
             "404": {
               "description": "Patient not found"
             }
-          }
+          },
+          "x-data-sources": [
+            "patientBiographicalData"
+          ]
         }
       },
       "/categories/{patientId}:": {
@@ -540,7 +548,10 @@
             "404": {
               "description": "Categories not found"
             }
-          }
+          },
+          "x-data-sources": [
+            "documentSource"
+          ]
         }
       },
       "/documents/{patientId}/{category}": {
@@ -591,7 +602,10 @@
             "404": {
               "description": "The patient has no documents in the specified category."
             }
-          }
+          },
+          "x-data-sources": [
+            "documentSource"
+          ]
         }
       },
       "/documents/{patientId}/{category}/item/{position}": {
@@ -645,7 +659,10 @@
             "404": {
               "description": "Document not found"
             }
-          }
+          },
+          "x-data-sources": [
+            "documentSource"
+          ]
         }
       }
     },
