@@ -1,0 +1,272 @@
+{
+	"applicationType": "streaming",
+	"functionalRequirements": {
+		
+        "methodTags": ["OSR",
+            "patient",
+            "hospital",
+            "blood",
+            "test",
+            "component",
+            "age-range",
+            "research",
+            "pseudonymization",
+            "anonymization",
+            "GDPR-compliance"],
+        
+		"vdcTags": ["ask_iccs"],
+		"schema": {
+			"attributes": ["ask_iccs"]
+		}
+
+	},
+	"attributes": 
+	{
+	    "dataUtility": [
+          {
+            "id": "volume_8000",
+            "description": "volume 8000",
+            "type": "Volume",
+            "properties": {
+              "volume": {
+                "value": 8000,
+                "unit": "tuple"
+              }
+            }
+          },
+          {
+            "id": "accuracy_08",
+            "description": "Accuracy",
+            "type": "Accuracy",
+            "properties": {
+              "accuracy": {
+                "minimum": 0.8,
+                "unit": "none"
+              }
+            }
+          },
+          {
+            "id": "processCompleteness_8",
+            "description": "Process completeness 8",
+            "type": "Process completeness",
+            "properties": {
+              "completeness": {
+                "minimum": 80,
+                "unit": "percentage"
+              }
+            }
+          },
+          {
+            "id": "scaleUpMemory",
+            "description": "scale-up memory",
+            "type": "Scale-up",
+            "properties": {
+              "ramGain": {
+                "unit": "percentage",
+                "value": 130
+              },
+              "ramLimit": {
+                "unit": "percentage",
+                "value": 90
+              }
+            }
+          },
+          {
+            "id": "scaleUpSpace",
+            "description": "scale-up space",
+            "type": "Scale-up",
+            "properties": {
+              "spaceGain": {
+                "unit": "percentage",
+                "value": 110
+              },
+              "spaceLimit": {
+                "unit": "percentage",
+                "value": 95
+              }
+            }
+          }
+        ],
+        "security": [
+          {
+            "id": "encryption_AES128",
+            "description": "Encryption AES 128",
+            "type": "TransportEncryption",
+            "properties": {
+              "protocol": {
+                "unit": "enum",
+                "value": "TLS"
+              },
+              "algorithm": {
+                "unit": "enum",
+                "value": ["TLS_AES_256_GCM_SHA384", "TLS_AES_128_GCM_SHA256", "TLS_AES_128_CCM_8_SHA256", "TLS_AES_128_CCM_SHA256"]
+              },
+              "keyLength": {
+                "unit": "number",
+                "value": 128
+              }
+            }
+          },
+          {
+            "id": "tracing_1",
+            "description": "Tracing 1",
+            "type": "Tracing",
+            "properties": {
+              "level": {
+                "unit": "enum",
+                "value": "datasource"
+              },
+              "sampleRate": {
+                "unit": "percentage",
+                "value": 1
+              },
+              "instrumentation": {
+                "unit": "enum",
+                "value": "VDC"
+              }
+            }
+          },
+          {
+            "id": "acl_userPW_researcher",
+            "description": "ACL username/password researcher_id",
+            "type": "ACL",
+            "properties": {
+              "protocol": {
+                "unit": "enum",
+                "value": "username/password"
+              },
+              "credentials": {
+                "unit": "list",
+                "value": [
+                  "researcher_id"
+                ]
+              }
+            }
+          }
+        ],
+        "privacy": [
+          {
+            "id": "purposeControl_research",
+            "description": "PurposeControl research",
+            "type": "PurposeControl",
+            "properties": {
+              "availablePurpose": {
+                "unit": "list",
+                "value": [
+                  "research",
+                  "medical research",
+                  "nutritional research"
+                ]
+              },
+              "allowedGuarantor": {
+                "unit": "list",
+                "value": [
+                  "d63d0e21fdc05f618d55ef306c54af82"
+                ]
+              }
+            }
+          }
+        ]
+    }
+    ,
+	"goalTrees": {
+		"dataUtility": {
+            "description": "Requirements achieved",
+			"type": "AND",
+			"children": [
+				{
+                    "description": "High Data Quality",
+					"type": "AND",
+					"leaves": [
+						{
+							"id": "accuracy",
+							"description": "High Accuracy",
+							"weight": 1,
+							"attributes": [
+								"accuracy_08"
+							]
+						},
+						{
+							"id": "volume",
+							"description": "Enough data to process",
+							"weight": 1,
+							"attributes": [
+								"volume_8000"
+							]
+						},
+                        {
+							"id": "completeness",
+							"description": "Completeness",
+							"weight": 1,
+							"attributes": [
+								"processCompleteness_8"
+							]
+						}
+					]
+				}
+			],
+            "leaves": [
+                {
+                    "id": "serviceScalable",
+                    "description": "Service Scalable",
+                    "weight": 1,
+                    "attributes": [
+                        "scaleUpMemory", "scaleUpSpace"
+                    ]
+                }
+            ]
+		},
+		"security": {
+			"type": "AND",
+            "description": "High security",
+			"leaves": [{
+					"id": "TrasportEncryption",
+					"description": "Secure data trasport",
+					"weight": 1,
+					"attributes": [
+						"encryption_AES128"
+					]
+				},
+				{
+					"id": "AccessControl",
+					"description": "Secure access",
+					"weight": 1,
+					"attributes": [
+						"acl_userPW_researcher"
+					]
+				},
+				{
+					"id": "TracingAccess",
+					"description": "Tracing and access monitoing",
+					"weight": 1,
+					"attributes": [
+						"tracing_1"
+					]
+				}
+			]
+		},
+		"privacy": {
+			"type": "AND",
+            "description": "High privacy",
+			"leaves": [
+                {
+					"id": "purposeControl",
+					"description": "Purpose Control",
+					"weight": 1,
+					"attributes": [
+						"purposeControl_research"
+					]
+				}
+			]
+		}
+	}
+	,
+	"methodsOutput": {
+        "methods": [
+            {
+                "method_id": "getBloodTestComponentAverage",
+                "attributes": [ "value", "_links"]
+            }
+        ]
+    }
+}
