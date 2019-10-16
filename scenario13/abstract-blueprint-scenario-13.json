@@ -406,8 +406,8 @@
             "type": "Accuracy",
             "properties": {
               "accuracy": {
-                "minimum": 0.8,
-                "unit": "none"
+                "minimum": 80,
+                "unit": "percentage"
               }
             }
           },
@@ -495,8 +495,11 @@
           {
             "id": "acl_userPW_researcher",
             "description": "ACL username/password researcher_id",
-            "type": "ACL",
+            "type": "Protocol",
             "properties": {
+              "required":{
+                  "value":"true"
+              },
               "protocol": {
                 "unit": "enum",
                 "value": "username/password"

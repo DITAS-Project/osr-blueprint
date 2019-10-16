@@ -29,7 +29,7 @@
             "type": "Volume",
             "properties": {
               "volume": {
-                "value": 8000,
+                "value": 7000,
                 "unit": "tuple"
               }
             }
@@ -40,8 +40,8 @@
             "type": "Accuracy",
             "properties": {
               "accuracy": {
-                "minimum": 0.8,
-                "unit": "none"
+                "minimum": 80,
+                "unit": "percentage"
               }
             }
           },
@@ -51,7 +51,7 @@
             "type": "Process completeness",
             "properties": {
               "completeness": {
-                "minimum": 80,
+                "minimum": 75,
                 "unit": "percentage"
               }
             }
@@ -98,7 +98,7 @@
                 "value": "TLS"
               },
               "algorithm": {
-                "unit": "enum",
+                "unit": "list",
                 "value": ["TLS_AES_256_GCM_SHA384", "TLS_AES_128_GCM_SHA256", "TLS_AES_128_CCM_8_SHA256", "TLS_AES_128_CCM_SHA256"]
               },
               "keyLength": {
@@ -129,8 +129,11 @@
           {
             "id": "acl_userPW_researcher",
             "description": "ACL username/password researcher_id",
-            "type": "ACL",
+            "type": "Protocol",
             "properties": {
+              "required":{
+                  "value":"true"
+              },
               "protocol": {
                 "unit": "enum",
                 "value": "username/password"
