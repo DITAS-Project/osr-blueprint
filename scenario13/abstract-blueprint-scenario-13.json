@@ -537,6 +537,159 @@
           }
         ]
       }
+    },
+	{
+      "method_id": "getNutritionalData",
+      "attributes": {
+        "dataUtility": [
+          {
+            "id": "volume_8000",
+            "description": "volume 8000",
+            "type": "Volume",
+            "properties": {
+              "volume": {
+                "value": 8000,
+                "unit": "tuple"
+              }
+            }
+          },
+          {
+            "id": "accuracy_08",
+            "description": "Accuracy",
+            "type": "Accuracy",
+            "properties": {
+              "accuracy": {
+                "minimum": 80,
+                "unit": "percentage"
+              }
+            }
+          },
+          {
+            "id": "processCompleteness_8",
+            "description": "Process completeness 8",
+            "type": "Process completeness",
+            "properties": {
+              "completeness": {
+                "minimum": 80,
+                "unit": "percentage"
+              }
+            }
+          },
+          {
+            "id": "scaleUpMemory",
+            "description": "scale-up memory",
+            "type": "Scale-up",
+            "properties": {
+              "ramGain": {
+                "unit": "percentage",
+                "value": 130
+              },
+              "ramLimit": {
+                "unit": "percentage",
+                "value": 90
+              }
+            }
+          },
+          {
+            "id": "scaleUpSpace",
+            "description": "scale-up space",
+            "type": "Scale-up",
+            "properties": {
+              "spaceGain": {
+                "unit": "percentage",
+                "value": 110
+              },
+              "spaceLimit": {
+                "unit": "percentage",
+                "value": 95
+              }
+            }
+          }
+        ],
+        "security": [
+          {
+            "id": "encryption_AES128",
+            "description": "Encryption AES 128",
+            "type": "TransportEncryption",
+            "properties": {
+              "protocol": {
+                "unit": "enum",
+                "value": "TLS"
+              },
+              "algorithm": {
+                "unit": "list",
+                "value": ["TLS_AES_256_GCM_SHA384", "TLS_AES_128_GCM_SHA256", "TLS_AES_128_CCM_8_SHA256", "TLS_AES_128_CCM_SHA256"]
+              },
+              "keyLength": {
+                "unit": "number",
+                "value": 128
+              }
+            }
+          },
+          {
+            "id": "tracing_1",
+            "description": "Tracing 1",
+            "type": "Tracing",
+            "properties": {
+              "level": {
+                "unit": "enum",
+                "value": "datasource"
+              },
+              "sampleRate": {
+                "unit": "percentage",
+                "value": 1
+              },
+              "instrumentation": {
+                "unit": "enum",
+                "value": "VDC"
+              }
+            }
+          },
+          {
+            "id": "acl_userPW_researcher",
+            "description": "ACL username/password researcher_id",
+            "type": "Protocol",
+            "properties": {
+              "required":{
+                  "value":"true"
+              },
+              "protocol": {
+                "unit": "enum",
+                "value": "username/password"
+              },
+              "credentials": {
+                "unit": "list",
+                "value": [
+                  "researcher_id"
+                ]
+              }
+            }
+          }
+        ],
+        "privacy": [
+          {
+            "id": "purposeControl_research",
+            "description": "PurposeControl research",
+            "type": "PurposeControl",
+            "properties": {
+              "availablePurpose": {
+                "unit": "list",
+                "value": [
+                  "research",
+                  "medical research",
+                  "nutritional research"
+                ]
+              },
+              "allowedGuarantor": {
+                "unit": "list",
+                "value": [
+                  "d63d0e21fdc05f618d55ef306c54af82"
+                ]
+              }
+            }
+          }
+        ]
+      }
     }
   ],
   "ABSTRACT_PROPERTIES": [],

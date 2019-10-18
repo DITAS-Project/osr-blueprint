@@ -9,6 +9,8 @@
             "test",
             "component",
             "age-range",
+            "nutritional",
+            "data",
             "research",
             "pseudonymization",
             "anonymization",
@@ -29,7 +31,7 @@
             "type": "Volume",
             "properties": {
               "volume": {
-                "value": 7000,
+                "minimum": 7000,
                 "unit": "tuple"
               }
             }
@@ -269,6 +271,10 @@
             {
                 "method_id": "getBloodTestComponentAverage",
                 "attributes": [ "value", "_links"]
+            },
+			{
+                "method_id": "getNutritionalData",
+                "attributes": [ "data", "_links"]
             }
         ]
     }
