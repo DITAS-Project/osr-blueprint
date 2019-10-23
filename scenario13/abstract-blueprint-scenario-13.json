@@ -685,7 +685,7 @@
                         "name": "osr-c1",
                         "cpu": 4000,
                         "ram": 4096,
-                        "disk": 40000,
+                        "disk": 40960,
                         "drives": [{
                             "name": "osr-c1-d1",
                             "size": 10000,
@@ -701,7 +701,7 @@
                         "name": "osr-c2",
                         "cpu": 4000,
                         "ram": 4096,
-                        "disk": 40000,
+                        "disk": 40960,
                         "drives": [{
                             "name": "osr-c2-d1",
                             "size": 10000,
