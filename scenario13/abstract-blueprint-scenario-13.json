@@ -661,11 +661,6 @@
     ],
     "ABSTRACT_PROPERTIES": [],
     "COOKBOOK_APPENDIX": {
-        "Identity_Access_Management": {
-            "validation_keys": [
-                "f66fdd086402041b0c256949c4a2836145493d6b5491cd9284addcdd48a5197d"
-            ]
-        },
         "Resources": {
             "name": "osr-resources-cloudsigma",
             "description": "OSR resources at Cloudsigma available to our clients",
