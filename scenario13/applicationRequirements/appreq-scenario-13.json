@@ -65,11 +65,11 @@
             "properties": {
               "ramGain": {
                 "unit": "percentage",
-                "value": 130
+                "minimum": 130
               },
               "ramLimit": {
                 "unit": "percentage",
-                "value": 90
+                "maximum": 90
               }
             }
           },
@@ -80,11 +80,11 @@
             "properties": {
               "spaceGain": {
                 "unit": "percentage",
-                "value": 110
+                "minimum": 110
               },
               "spaceLimit": {
                 "unit": "percentage",
-                "value": 95
+                "maximum": 95
               }
             }
           }
