@@ -671,7 +671,7 @@
                     "api_endpoint": "https://fra.cloudsigma.com/api/2.0",
                     "api_type": "cloudsigma",
                     "credentials": {
-                        "username": "catallo.ilio@hsr.it",
+                        "username": "ditas@eservices4life.org",
                         "password": "ASK-FOR-IT"
                     },
                     "secret_id": ""
