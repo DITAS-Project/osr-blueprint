@@ -330,16 +330,16 @@
         },
         "DAL_Images": {
             "osr-dal": {
-                "internal_port": 50051,
-                "external_port": 50051,
-                "image": "git.eservices4life.org:4994/ditas/emergency-vdc/dal-test-double:185f5097",
-                "original_ip": "0.0.0.0"
+                "internal_port": 50052,
+                "external_port": 50052,
+                "image": "ditas/ehealth-dal",
+                "original_ip": "178.22.71.88"
             }
         },
         "VDC_Images": {
             "caf": {
-                "internal_port": 3001,
-                "image": "git.eservices4life.org:4994/ditas/researcher-app/vdc:b04a9340"
+                "internal_port": 9000,
+                "image": "ditas/ehealth-vdc"
             }
         },
         "Identity_Access_Management": {
