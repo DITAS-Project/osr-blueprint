@@ -332,14 +332,14 @@
             "osr-dal": {
                 "internal_port": 50052,
                 "external_port": 50052,
-                "image": "ditas/ehealth-dal",
+                "image": "153.92.30.225:5050/ehealth-dal",
                 "original_ip": "178.22.71.88"
             }
         },
         "VDC_Images": {
             "caf": {
                 "internal_port": 9000,
-                "image": "ditas/ehealth-vdc"
+                "image": "153.92.30.225:5050/ehealth-vdc"
             }
         },
         "Identity_Access_Management": {
