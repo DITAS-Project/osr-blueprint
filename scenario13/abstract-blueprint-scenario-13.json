@@ -330,16 +330,31 @@
         },
         "DAL_Images": {
             "osr-dal": {
-                "internal_port": 50051,
-                "external_port": 50051,
-                "image": "git.eservices4life.org:4994/ditas/emergency-vdc/dal-test-double:185f5097",
-                "original_ip": "0.0.0.0"
+                "internal_port": 50052,
+                "external_port": 50052,
+                "image": "153.92.30.225:5050/ehealth-dal",
+                "original_ip": "178.22.71.88",
+                "environment": {
+                    "MINIO_URI": "MINIO_URI",
+                    "MINIO_ACCESS_KEY": "MINIO_ACCESS_KEY",
+                    "MINIO_SECRET_KEY": "MINIO_SECRET_KEY",
+                    "MYSQL_URI": "MYSQL_URI",
+                    "MYSQL_USERNAME": "MYSQL_USERNAME",
+                    "MYSQL_PASSWORD": "MYSQL_PASSWORD",
+                    "POLICY_ENFORCEMENT_URI": "POLICY_ENFORCEMENT_URI",
+                    "KEYCLOAK_PUBLIC_KEY_URI": "KEYCLOAK_PUBLIC_KEY_URI"
+                }
             }
         },
         "VDC_Images": {
             "caf": {
-                "internal_port": 3001,
-                "image": "git.eservices4life.org:4994/ditas/researcher-app/vdc:b04a9340"
+                "internal_port": 9000,
+                "image": "153.92.30.225:5050/ehealth-vdc",
+                "environment": {
+                    "PLAY_HTTP_SECRET": "PLAY_HTTP_SECRET",
+                    "DAL_URI": "${dal.osr-dal.name}",
+                    "DAL_PORT": "${dal.osr-dal.default.port}"
+                }
             }
         },
         "Identity_Access_Management": {
@@ -671,7 +686,7 @@
                     "api_endpoint": "https://fra.cloudsigma.com/api/2.0",
                     "api_type": "cloudsigma",
                     "credentials": {
-                        "username": "catallo.ilio@hsr.it",
+                        "username": "ditas@eservices4life.org",
                         "password": "ASK-FOR-IT"
                     },
                     "secret_id": ""
