@@ -1,26 +1,11 @@
 {
 	"applicationType": "batch",
 	"functionalRequirements": {
-		
-        "methodTags": ["OSR",
-            "patient",
-            "hospital",
-            "blood",
-            "test",
-            "component",
-            "age-range",
-            "nutritional",
-            "data",
-            "research",
-            "pseudonymization",
-            "anonymization",
-            "GDPR-compliance"],
         
-		"vdcTags": ["ask_iccs"],
-		"schema": {
-			"attributes": ["ask_iccs"]
-		}
+		"vdcTags":["Milan"],
 
+		"methodTags":["patients"]
+		
 	},
 	"attributes": 
 	{
