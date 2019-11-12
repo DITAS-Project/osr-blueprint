@@ -270,8 +270,42 @@
 					"spark_jars": "mysql-connector-java-5.1.45/mysql-connector-java-5.1.45-bin.jar,hadoop-aws-3.0.0.jar,aws-java-sdk-bundle-1.11.271.jar"
 				}
 			},
-			"DAL_Images": {},
-			"VDC_Images": {},
+			"DAL_Images": {
+				"osr-dal": {
+					"images": {
+						"default": {
+							"internal_port": 30052,
+							"external_port": 30052,
+							"image": "153.92.30.225:5050/ehealth-dal",
+							"environment": {
+								"FTP_URL": "${shared_space_url}",
+								"FTP_USERNAME": "${shared_space_username}",
+								"FTP_PASSWORD": "${shared_space_password}",
+								"MINIO_URI": "http://${bloodTestSource.name}:${bloodTestSource.port}",
+								"MINIO_ACCESS_KEY": "${bloodTestSource.access_key}",
+								"MINIO_SECRET_KEY": "${bloodTestSource.secret_key}",
+								"MYSQL_URI": "jdbc:mysql://${patientBiographicalData.name}:${patientBiographicalData.port}/ditas_dummy_example?autoReconnect=true&useSSL=false",
+								"MYSQL_USERNAME": "${patientBiographicalData.username}",
+								"MYSQL_PASSWORD": "${patientBiographicalData.password}",
+								"POLICY_ENFORCEMENT_URI": "http://localhost:8083/rewrite-sql-query",
+								"KEYCLOAK_PUBLIC_KEY_URI": "${keycloack_url}/auth/realms/${keycloack_realm}/protocol/openid-connect/certs"
+							}
+						}
+					},
+					"original_ip": "178.22.71.88"
+				}
+			},
+			"VDC_Images": {
+				"caf": {
+					"internal_port": 9000,
+					"image": "153.92.30.225:5050/ehealth-vdc",
+					"environment": {
+						"PLAY_HTTP_SECRET": "${random}",
+						"DAL_URI": "osr-dal",
+						"DAL_PORT": "${dal.osr-dal.default.port}"
+					}
+				}
+			},
 			"Identity_Access_Management": {
 				"jwks_uri": "https://keycloak.service/protocol/openid-connect/certs",
 				"iam_endpoint": "https://keycloak.service/",
