@@ -329,21 +329,28 @@
             }
         },
         "DAL_Images": {
-            "osr-dal": {
-                "internal_port": 50052,
-                "external_port": 50052,
-                "image": "153.92.30.225:5050/ehealth-dal",
-                "original_ip": "178.22.71.88",
-                "environment": {
-                    "MINIO_URI": "MINIO_URI",
-                    "MINIO_ACCESS_KEY": "MINIO_ACCESS_KEY",
-                    "MINIO_SECRET_KEY": "MINIO_SECRET_KEY",
-                    "MYSQL_URI": "MYSQL_URI",
-                    "MYSQL_USERNAME": "MYSQL_USERNAME",
-                    "MYSQL_PASSWORD": "MYSQL_PASSWORD",
-                    "POLICY_ENFORCEMENT_URI": "POLICY_ENFORCEMENT_URI",
-                    "KEYCLOAK_PUBLIC_KEY_URI": "KEYCLOAK_PUBLIC_KEY_URI"
-                }
+        	"osr-dal": {
+        		"images": {
+        			"default": {
+        				"internal_port": 30052,
+                		"external_port": 30052,
+                		"image": "153.92.30.225:5050/ehealth-dal",
+                		"environment": {
+                			"FTP_URL": "${shared_space_url}",
+                			"FTP_USERNAME": "${shared_space_username}",
+                			"FTP_PASSWORD": "${shared_space_password}",
+                    		"MINIO_URI": "http://${bloodTestSource.name}:${bloodTestSource.port}",
+                    		"MINIO_ACCESS_KEY": "${bloodTestSource.access_key}",
+                    		"MINIO_SECRET_KEY": "${bloodTestSource.secret_key}",
+                    		"MYSQL_URI": "jdbc:mysql://${patientBiographicalData.name}:${patientBiographicalData.port}/ditas_dummy_example?autoReconnect=true&useSSL=false",
+                    		"MYSQL_USERNAME": "${patientBiographicalData.username}",
+                    		"MYSQL_PASSWORD": "${patientBiographicalData.password}",
+                    		"POLICY_ENFORCEMENT_URI": "http://localhost:8083/rewrite-sql-query",
+                    		"KEYCLOAK_PUBLIC_KEY_URI": "${keycloack_url}/auth/realms/${keycloack_realm}/protocol/openid-connect/certs"
+                		}
+        			}
+        		},
+                "original_ip": "178.22.71.88"
             }
         },
         "VDC_Images": {
@@ -351,8 +358,8 @@
                 "internal_port": 9000,
                 "image": "153.92.30.225:5050/ehealth-vdc",
                 "environment": {
-                    "PLAY_HTTP_SECRET": "PLAY_HTTP_SECRET",
-                    "DAL_URI": "${dal.osr-dal.name}",
+                    "PLAY_HTTP_SECRET": "${random}",
+                    "DAL_URI": "osr-dal",
                     "DAL_PORT": "${dal.osr-dal.default.port}"
                 }
             }
