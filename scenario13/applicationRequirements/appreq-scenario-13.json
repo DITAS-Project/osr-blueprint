@@ -33,6 +33,17 @@
             }
           },
           {
+			"id": "timeliness",
+			"description": "Timeliness",
+			"type": "Timeliness",
+			"properties": {
+			  "timeliness": {
+				"minimum": 90,
+				"unit": "percentage"
+			  }
+			}
+		  },
+		  {
             "id": "processCompleteness_8",
             "description": "Process completeness 8",
             "type": "Process completeness",
@@ -43,36 +54,17 @@
               }
             }
           },
-          {
-            "id": "scaleUpMemory",
-            "description": "scale-up memory",
-            "type": "Scale-up",
-            "properties": {
-              "ramGain": {
-                "unit": "percentage",
-                "minimum": 130
-              },
-              "ramLimit": {
-                "unit": "percentage",
-                "maximum": 90
-              }
-            }
-          },
-          {
-            "id": "scaleUpSpace",
-            "description": "scale-up space",
-            "type": "Scale-up",
-            "properties": {
-              "spaceGain": {
-                "unit": "percentage",
-                "minimum": 110
-              },
-              "spaceLimit": {
-                "unit": "percentage",
-                "maximum": 95
-              }
-            }
-          }
+		  {
+			"id": "responseTime",
+			"description": "responseTime",
+			"type": "ResponseTime",
+			"properties": {
+			  "responseTime": {
+				"unit": "second",
+				"maximum": 0.5
+			  }
+			}
+		  }
         ],
         "security": [
           {
@@ -169,6 +161,14 @@
 					"type": "AND",
 					"leaves": [
 						{
+							"id": "freshData",
+							"description": "Fresh Data",
+							"weight": 1,
+							"attributes": [
+								"timeliness"
+							]
+						},
+						{
 							"id": "accuracy",
 							"description": "High Accuracy",
 							"weight": 1,
@@ -197,13 +197,13 @@
 			],
             "leaves": [
                 {
-                    "id": "serviceScalable",
-                    "description": "Service Scalable",
-                    "weight": 1,
-                    "attributes": [
-                        "scaleUpMemory", "scaleUpSpace"
-                    ]
-                }
+					"id": "fastProcess",
+					"description": "Fast Process",
+					"weight": 1,
+					"attributes": [
+						"responseTime"
+					]
+				}
             ]
 		},
 		"security": {

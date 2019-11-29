@@ -419,35 +419,38 @@
                         }
                     },
                     {
-                        "id": "scaleUpMemory",
-                        "description": "scale-up memory",
-                        "type": "Scale-up",
-                        "properties": {
-                            "ramGain": {
-                                "unit": "percentage",
-                                "value": 130
-                            },
-                            "ramLimit": {
-                                "unit": "percentage",
-                                "value": 90
-                            }
-                        }
-                    },
-                    {
-                        "id": "scaleUpSpace",
-                        "description": "scale-up space",
-                        "type": "Scale-up",
-                        "properties": {
-                            "spaceGain": {
-                                "unit": "percentage",
-                                "value": 110
-                            },
-                            "spaceLimit": {
-                                "unit": "percentage",
-                                "value": 95
-                            }
-                        }
-                    }
+						"id": "timeliness",
+						"description": "Timeliness",
+						"type": "Timeliness",
+						"properties": {
+							"timeliness": {
+								"minimum": 90,
+								"unit": "percentage"
+							}
+						}
+					},
+					{
+						"id": "responseTime",
+						"description": "ResponseTime",
+						"type": "ResponseTime",
+						"properties": {
+							"responseTime": {
+								"maximum": 0.5,
+								"unit": "second"
+							}
+						}
+					},
+					{
+						"id": "availability",
+						"description": "Availability",
+						"type": "Availability",
+						"properties": {
+							"availability": {
+								"unit": "percentage",
+								"minimum": 95
+							}
+						}
+					}
                 ],
                 "security": [{
                         "id": "encryption_AES128",
@@ -568,35 +571,38 @@
                         }
                     },
                     {
-                        "id": "scaleUpMemory",
-                        "description": "scale-up memory",
-                        "type": "Scale-up",
-                        "properties": {
-                            "ramGain": {
-                                "unit": "percentage",
-                                "value": 130
-                            },
-                            "ramLimit": {
-                                "unit": "percentage",
-                                "value": 90
-                            }
-                        }
-                    },
-                    {
-                        "id": "scaleUpSpace",
-                        "description": "scale-up space",
-                        "type": "Scale-up",
-                        "properties": {
-                            "spaceGain": {
-                                "unit": "percentage",
-                                "value": 110
-                            },
-                            "spaceLimit": {
-                                "unit": "percentage",
-                                "value": 95
-                            }
-                        }
-                    }
+						"id": "timeliness",
+						"description": "Timeliness",
+						"type": "Timeliness",
+						"properties": {
+							"timeliness": {
+								"minimum": 90,
+								"unit": "percentage"
+							}
+						}
+					},
+					{
+						"id": "responseTime",
+						"description": "ResponseTime",
+						"type": "ResponseTime",
+						"properties": {
+							"responseTime": {
+								"maximum": 0.5,
+								"unit": "second"
+							}
+						}
+					},
+					{
+						"id": "availability",
+						"description": "Availability",
+						"type": "Availability",
+						"properties": {
+							"availability": {
+								"unit": "percentage",
+								"minimum": 95
+							}
+						}
+					}
                 ],
                 "security": [{
                         "id": "encryption_AES128",
