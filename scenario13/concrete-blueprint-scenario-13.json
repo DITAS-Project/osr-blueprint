@@ -954,7 +954,8 @@
             "secret_id": "ce16768b-f9b0-4de4-8423-8f224620f588"
           },
           "extra_properties": {
-            "kubeadm_preinstalled_image": "true"
+            "kubeadm_preinstalled_image": "true",
+            "ditas_default": "true"
           },
           "resources": [
             {
@@ -1001,11 +1002,7 @@
                 "provider": {
                     "api_endpoint": "https://sjc.cloudsigma.com/api/2.0",
                     "api_type": "cloudsigma",
-                    "credentials": {
-                    	"username": "ditas@eservices4life.org" ,
-                    	"password": "Tartaruga49!"
-                    },
-                    "secret_id": ""
+                    "secret_id": "54cd31e6-1554-438e-ae41-30087811d2da"
                 },
                 "extra_properties": {
                     "kubeadm_preinstalled_image": "true"
