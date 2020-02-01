@@ -407,7 +407,6 @@
     "VDC_Images": {
       "caf": {
         "internal_port": 9000,
-        "external_port": 9000,
         "image": "153.92.30.225:5050/ehealth-vdc",
         "environment": {
           "PLAY_HTTP_SECRET": "${random}",
