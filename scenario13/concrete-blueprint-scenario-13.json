@@ -434,7 +434,7 @@
       },
       {
         "method_id": "getNutritionalData",
-        "zip_data": "http://localhost:8080",
+        "zip_data": "https://github.com/DITAS-Project/data-utility-evaluator/blob/master/dataset/getNutritionalData.zip?raw=true",
         "attributes": [
           "data",
           "_links"
